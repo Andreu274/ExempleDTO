@@ -33,6 +33,26 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         DefaultTableModel dtm = (DefaultTableModel)jTable1.getModel ();
         dtm.addRow(client.toArrayString());
     }
+    
+    public void eliminarClient(Client client) {
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+
+        // Recórrer les files de la taula per trobar el client a eliminar
+        for (int i = 0; i < dtm.getRowCount(); i++) {
+            String dniTaula = (String) dtm.getValueAt(i, 0); // DNI està a la primera columna
+            String nomTaula = (String) dtm.getValueAt(i, 1); // Nom està a la segona columna
+            String cognomsTaula = (String) dtm.getValueAt(i, 2); // Cognoms està a la tercera columna
+
+            // Comparar el DNI, nom i cognoms
+            if (dniTaula.equals(client.getDNI()) && nomTaula.equals(client.getNom()) && cognomsTaula.equals(client.getCognoms())) {
+                dtm.removeRow(i); // Eliminar la fila corresponent
+                break; // Sortir del bucle un cop trobat
+            }
+        }
+    }
+
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -117,6 +137,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+        DialegBaixa dialegBaixa = new DialegBaixa(this);
+        dialegBaixa.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**

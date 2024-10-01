@@ -14,7 +14,7 @@ import java.util.Date;
 public class DialegAlta extends javax.swing.JFrame {
     
     
-    private PantallaPrincipal pare;
+    private PantallaPrincipal PantallaPrincipal;
 
     /**
      * Creates new form DialegAlta
@@ -23,7 +23,7 @@ public class DialegAlta extends javax.swing.JFrame {
     
     public DialegAlta(PantallaPrincipal pantallaPrincipal)
     {
-        this.pare = pantallaPrincipal;
+        this.PantallaPrincipal = pantallaPrincipal;
         initComponents();
     }
     /**
@@ -141,7 +141,7 @@ public class DialegAlta extends javax.swing.JFrame {
         String illa = (String)jComboBoxIlla.getSelectedItem();
         
         Client client = new Client(DNI, nom, cognom, dataAlta, illa);
-        pare.afegirClient(client);
+        PantallaPrincipal.afegirClient(client);
         this.dispose();
     }//GEN-LAST:event_jButtonAltaActionPerformed
 

@@ -26,6 +26,13 @@ public class Client
         this.date = date;
         this.illa = illa;
     }
+    
+    public Client(String DNI, String nom, String cognoms) {
+        this.DNI = DNI;
+        this.nom = nom;
+        this.cognoms = cognoms;
+        
+    }
 
     public String getDNI() {
         return DNI;
