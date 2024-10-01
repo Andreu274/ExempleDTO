@@ -13,16 +13,22 @@ import java.util.Date;
  */
 public class Client 
 {
+    private String DNI;
     private String nom;
     private String cognoms;
     private Date date;
     private String illa;
 
-    public Client(String nom, String cognoms, Date date, String illa) {
+    public Client(String DNI, String nom, String cognoms, Date date, String illa) {
+        this.DNI = DNI;
         this.nom = nom;
         this.cognoms = cognoms;
         this.date = date;
         this.illa = illa;
+    }
+
+    public String getDNI() {
+        return DNI;
     }
 
     public String getNom() {
@@ -39,6 +45,10 @@ public class Client
 
     public String getIlla() {
         return illa;
+    }
+
+    public void setDNI(String DNI) {
+        this.DNI = DNI;
     }
 
     public void setNom(String nom) {
@@ -59,11 +69,12 @@ public class Client
     
     public String[] toArrayString()
     {
-         String[] s = new String[4];
-         s[0] = nom;
-         s[1] = cognoms;
-         s[2] = date.toString();
-         s[3] = illa;
+         String[] s = new String[5];
+         s[0] = DNI;
+         s[1] = nom;
+         s[2] = cognoms;
+         s[3] = date.toString();
+         s[4] = illa;
          
          return s;
     }
