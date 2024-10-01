@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author rgtav
+ * @author Maqrok
  */
 public class PantallaPrincipal extends javax.swing.JFrame {
 
