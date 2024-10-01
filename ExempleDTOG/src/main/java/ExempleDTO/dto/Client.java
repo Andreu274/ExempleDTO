@@ -1,38 +1,45 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ExempleDTO.dto;
 
-import java.util.Arrays;
-import java.util.Date;
 
-/**
- *
- * @author Maqrok
- */
-public class Client 
-{
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.JOptionPane;
+
+
+public class Client {
     private String DNI;
     private String nom;
     private String cognoms;
     private Date date;
     private String illa;
+    private static Set<String> dnis = new HashSet<>();
 
     public Client(String DNI, String nom, String cognoms, Date date, String illa) {
+        if (dnis.contains(DNI)) {
+            JOptionPane.showMessageDialog(null, "El DNI ja existeix: " + DNI, "DNI duplicat", JOptionPane.ERROR_MESSAGE);
+            return;
+             
+        } 
+        
         this.DNI = DNI;
         this.nom = nom;
         this.cognoms = cognoms;
         this.date = date;
         this.illa = illa;
-    }
-    
-    public Client(String DNI, String nom, String cognoms) {
-        this.DNI = DNI;
-        this.nom = nom;
-        this.cognoms = cognoms;
+        
+        dnis.add(DNI);
         
     }
+
+    public Client(String DNI, String nom, String cognoms) {
+            this.DNI = DNI;
+            this.nom = nom;
+            this.cognoms = cognoms;
+            
+    }
+    
+
 
     public String getDNI() {
         return DNI;
@@ -73,16 +80,26 @@ public class Client
     public void setIlla(String illa) {
         this.illa = illa;
     }
-    
-    public String[] toArrayString()
-    {
-         String[] s = new String[5];
-         s[0] = DNI;
-         s[1] = nom;
-         s[2] = cognoms;
-         s[3] = date.toString();
-         s[4] = illa;
-         
-         return s;
+
+    public String[] toArrayString() {
+        String[] s = new String[5];
+        s[0] = DNI;
+        s[1] = nom;
+        s[2] = cognoms;
+        s[3] = (date != null) ? date.toString() : "";
+        s[4] = illa;
+        return s;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" + "DNI='" + DNI + '\'' +
+                ", nom='" + nom + '\'' +
+                ", cognoms='" + cognoms + '\'' +
+                ", date=" + date +
+                ", illa='" + illa + '\'' +
+                '}';
+    }
+    
+    
 }

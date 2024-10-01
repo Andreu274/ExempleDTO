@@ -14,10 +14,11 @@ import java.util.Date;
 public class DialegAlta extends javax.swing.JFrame {
     
     
-    private PantallaPrincipal PantallaPrincipal;
+    private final PantallaPrincipal PantallaPrincipal;
 
     /**
      * Creates new form DialegAlta
+     * @param pantallaPrincipal
      */
     
     
